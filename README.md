@@ -31,3 +31,11 @@ cajas_pequenas integer,
 cantidad_cajas integer
 )
 
+CREATE OR REPLACE PROCEDURE CALCULAR_CAJAS_NECESARIAS  AS 
+BEGIN
+  SELECT * INTO cuPedido from PEDIDO;
+  FOR i IN 1..LENGTH(cuPedido)
+     cantidad := CALCULAR_CAJAS_NECESARIAS(LcuPedido(i));
+  END LOOP;
+  UPDATE PEDIDO SET PEDIDO.cantidad = cuPedido.cantidad INT;
+END CALCULAR_CAJAS_NECESARIAS;
